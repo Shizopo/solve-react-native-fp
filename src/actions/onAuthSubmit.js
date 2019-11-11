@@ -7,7 +7,11 @@ import {
   AUTH_SUBMIT_FAILURE,
 } from "../types/actionTypes";
 
-export const submitAuth = ({userAuthData}:{userNumber: string, userPassword: string} => (
+export const submitAuth = (userAuthData: {
+  userNumber: string,
+  userPassword: string,
+  isValid: boolean,
+}) => (
   dispatch: ({ type: string, payload?: {} }) => void,
   getState: () => void
 ) => {

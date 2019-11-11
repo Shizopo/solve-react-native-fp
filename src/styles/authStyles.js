@@ -38,6 +38,19 @@ const authStyles = StyleSheet.create({
   authLoginButton: {
     margin: 3,
   },
+
+  errorText: {
+    color: "#ff0000",
+    textAlign: "center",
+  },
+
+  loadingModal: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+  },
 });
 
 export { authStyles as style };

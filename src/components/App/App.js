@@ -8,8 +8,8 @@
 
 import React from "react";
 import Auth from "../Auth";
-// import { Provider } from "react-redux";
-// import { store } from "../../configs/createStore";
+import { Provider } from "react-redux";
+import { store } from "../../configs/createStore";
 
 type Props = {};
 
@@ -19,8 +19,9 @@ class App extends React.Component<Props, State> {
   render() {
     return (
       <>
-        <Auth />
-        {/* <Provider store={store}></Provider> */}
+        <Provider store={store}>
+          <Auth />
+        </Provider>
       </>
     );
   }
