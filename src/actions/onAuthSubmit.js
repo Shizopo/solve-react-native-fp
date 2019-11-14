@@ -11,6 +11,7 @@ export const submitAuth = (userAuthData: {
   userNumber: string,
   userPassword: string,
   isValid: boolean,
+  isLogged: boolean,
 }) => (
   dispatch: ({ type: string, payload?: {} }) => void,
   getState: () => void

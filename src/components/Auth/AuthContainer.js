@@ -18,33 +18,37 @@ type Props = {
 type State = {
   userNumber: string,
   userPassword: string,
+  // isValid: boolean,
+  // isLogged: boolean,
 };
 
 class AuthContainer extends React.Component<Props, State> {
   state = {
     userNumber: "",
     userPassword: "",
-    isValid: true,
+    // isValid: true,
+    // isLogged: false,
   };
 
   handleInput = (name: string, value: string) => {
+    console.log(this.state);
     this.setState({ [name]: value });
   };
 
   // eslint-disable-next-line no-undef
   handleAuthSubmit = () => {
-    const { userNumber, userPassword } = this.state;
     this.props.submitAuth(this.state);
   };
 
   render() {
-    console.log(this.props);
+    let isValid = this.props.userAuthData.isValid;
+    let requestStatus = this.props.userAuthData.requestStatus;
     return (
       <Auth
         handleInput={this.handleInput}
         handleAuthSubmit={this.handleAuthSubmit}
-        isValid={this.props.userAuthData.isValid}
-        requestStatus={this.props.userAuthData.requestStatus}
+        isValid={isValid}
+        requestStatus={requestStatus}
       />
     );
   }

@@ -1,20 +1,22 @@
 import { StyleSheet } from "react-native";
 
-const chatListStyles = StyleSheet.create({
+const chatScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    textAlign: "center",
+    // textAlign: "center",
     marginTop: Platform.OS === "ios" ? 70 : 20,
     marginBottom: 30,
     backgroundColor: "#fafafa",
     height: "100%",
   },
-  listContainer: {
+  mainChatScreen: {
     flex: 1,
     textAlign: "center",
     backgroundColor: "#fafafa",
     height: "100%",
   },
+  bottomChatScreen: {},
+
   userCard: {
     flex: 1,
     flexDirection: "row",
@@ -56,4 +58,4 @@ const chatListStyles = StyleSheet.create({
   },
 });
 
-export { chatListStyles as style };
+export { chatScreenStyles as style };
