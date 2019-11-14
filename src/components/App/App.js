@@ -25,12 +25,14 @@ type State = {};
 const AppNavigator = createStackNavigator(
   {
     Home: StartScreen,
-    Chats: ChatList,
+    Auth: Auth,
+    ChatList: ChatList,
+    Chat: ChatScreen,
     // Contacts: ContactsList,
     // Settings: Settings,
   },
   {
-    initialRouteName: "Chats",
+    initialRouteName: "Home",
   }
 );
 

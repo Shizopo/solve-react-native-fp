@@ -15,7 +15,19 @@ const chatScreenStyles = StyleSheet.create({
     backgroundColor: "#fafafa",
     height: "100%",
   },
-  bottomChatScreen: {},
+  chatMessageContainer: {
+    width: "40%",
+  },
+  bottomChatScreen: {
+    flexDirection: "row",
+  },
+  messageInput: {
+    width: "80%",
+    height: 40,
+    marginLeft: 5,
+    borderBottomColor: "#000",
+    borderWidth: 1,
+  },
 
   userCard: {
     flex: 1,

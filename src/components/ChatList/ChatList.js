@@ -19,10 +19,10 @@ import { style } from "../../styles/chatListStyles";
 type Props = {};
 type State = {};
 
-const renderItem = item => {
+const renderItem = (item, openChat) => {
   return (
     <>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={openChat}>
         <View style={style.userCard}>
           <Image style={style.userPhoto} source={{ uri: item.photo }} />
           <View style={style.userCardMain}>
@@ -46,7 +46,7 @@ const renderItem = item => {
   );
 };
 
-const ChatList = ({ chatListData }) => {
+const ChatList = ({ chatListData, openChat }) => {
   console.log(chatListData);
   return (
     <View style={style.container}>
@@ -55,7 +55,7 @@ const ChatList = ({ chatListData }) => {
         data={chatListData}
         // extraData={chatListData}
         // keyExtractor={item => item.id.toString()}
-        renderItem={({ item }) => renderItem(item)}
+        renderItem={({ item, openChat }) => renderItem(item, openChat)}
         initialNumToRender={10}
         windowSize={11}
       />

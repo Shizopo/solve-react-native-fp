@@ -14,20 +14,24 @@ import {
 import Auth from "../Auth";
 import ChatList from "../ChatList";
 
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+
 type Props = {
   isLogged: boolean,
 };
 
 type State = {};
 
-const StartScreen = (isLogged: boolean) => {
+const StartScreen = (toAuth, toChatList) => {
   return (
     <>
       {/* {isLogged ? <ChatList /> : <Auth />} */}
-      <View>
-        {/* <Text style={{ marginTop: 50 }}> */}
-        {isLogged === true ? <ChatList /> : <Auth />}
-        {/* </Text> */}
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Button title={"Auth"} onPress={toAuth} />
+        <Button title={"ChatList"} onPress={toChatList} />
+
+        {/* {isLogged === true ? <ChatList /> : <Auth />} */}
       </View>
     </>
   );

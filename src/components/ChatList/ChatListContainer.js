@@ -7,6 +7,9 @@ import { contactsService } from "../../services/dataService";
 import { chatReducer } from "../../reducers/chatReducer";
 import { getChatListData } from "../../actions/onChatListLoading";
 
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+
 type Props = {
   getChatListData: ([]) => void,
 };
@@ -21,11 +24,21 @@ class ChatListContainer extends React.Component<Props, State> {
     console.log("hmmm", this.props.chatListData.data);
   }
 
+  // openChat = () => {
+  //   console.log("clicked");
+  //   this.props.navigation.navigate("Details");
+  // };
+
   render() {
     return (
       <ChatList
         style={{ marginTop: 50 }}
         chatListData={this.props.chatListData.data}
+        openChat={this.props.navigation.navigate("Chat", {
+          itemId: 2,
+          otherParam: "anything you want here",
+        })}
+        // openChat={this.openChat}
       />
     );
   }
