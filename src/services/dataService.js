@@ -27,26 +27,31 @@ const arrangeContactsList = resp => {
       isOnline: Math.random() * (3 - 1) + 1 > 2 ? true : false,
       messages: [
         {
+          author: el.name,
           status: "read",
           date: randomDate(new Date(2018, 0, 1), new Date()),
           text: "Some generated text will appear here, but not now",
         },
         {
+          author: el.name,
           status: "read",
           date: randomDate(new Date(2018, 0, 1), new Date()),
           text: "Some generated text will appear here, but not now",
         },
         {
+          author: el.name,
           status: "read",
           date: randomDate(new Date(2018, 0, 1), new Date()),
           text: "Some generated text will appear here, but not now",
         },
         {
+          author: el.name,
           status: "read",
           date: randomDate(new Date(2018, 0, 1), new Date()),
           text: "Some generated text will appear here, but not now",
         },
         {
+          author: el.name,
           status: "read",
           date: randomDate(new Date(2018, 0, 1), new Date()),
           text: "Some generated text will appear here, but not now",

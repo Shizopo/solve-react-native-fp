@@ -10,12 +10,14 @@ import {
   Button,
   Modal,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
 import Auth from "../Auth";
 import ChatList from "../ChatList";
-
-import { createAppContainer } from "react-navigation";
+import ChatScreen from "../ChatScreen";
 import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createAppContainer } from "react-navigation";
 
 type Props = {
   isLogged: boolean,
@@ -23,18 +25,62 @@ type Props = {
 
 type State = {};
 
-const StartScreen = (toAuth, toChatList) => {
+const StartScreen = props => {
   return (
-    <>
-      {/* {isLogged ? <ChatList /> : <Auth />} */}
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Button title={"Auth"} onPress={toAuth} />
-        <Button title={"ChatList"} onPress={toChatList} />
-
-        {/* {isLogged === true ? <ChatList /> : <Auth />} */}
-      </View>
-    </>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      {/* <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate("Auth");
+        }}
+      >
+        <Text>Auth</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate("ChatList");
+        }}
+      >
+        <Text>ChatList</Text>
+      </TouchableOpacity> */}
+    </View>
   );
 };
 
-export default StartScreen;
+const StartScreenNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: Auth,
+      navigationOptions: {
+        header: null,
+        footer: null,
+      },
+    },
+    // Auth: {
+    //   screen: Auth,
+    // },
+    ChatList: {
+      screen: ChatList,
+    },
+    ChatScreen: {
+      screen: ChatScreen,
+    },
+  },
+  {
+    initialRouteName: "Home",
+  }
+  // {
+  //   defaultNavigationOptions: ({ navigation }) => ({
+  //     tabBarIcon: ({ focused, horizontal, tintColor }) => {
+  //       const { routeName } = navigation.state;
+  //       return <Text size={25} color={tintColor} />;
+  //     },
+  //   }),
+  //   tabBarOptions: {
+  //     activeTintColor: "tomato",
+  //     inactiveTintColor: "gray",
+  //     showIcon: false,
+  //   },
+  // }
+);
+
+export default createAppContainer(StartScreenNavigator);

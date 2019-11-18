@@ -7,8 +7,8 @@ import { contactsService } from "../../services/dataService";
 import { chatReducer } from "../../reducers/chatReducer";
 import { getChatListData } from "../../actions/onChatListLoading";
 
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+// import { createAppContainer } from "react-navigation";
+// import { createStackNavigator } from "react-navigation-stack";
 
 type Props = {
   getChatListData: ([]) => void,
@@ -19,26 +19,23 @@ type State = {};
 class ChatListContainer extends React.Component<Props, State> {
   state = {};
 
-  componentDidMount() {
-    let data = this.props.getChatListData([1, 2, 8, 14, 25, 38, 43, 18, 29]);
-    console.log("hmmm", this.props.chatListData.data);
-  }
+  static navigationOptions = {
+    title: "Active chats",
+  };
 
-  // openChat = () => {
-  //   console.log("clicked");
-  //   this.props.navigation.navigate("Details");
-  // };
+  openChat = id => {
+    this.props.navigation.navigate("ChatScreen", {
+      itemId: id,
+      otherParam: "anything you want here",
+    });
+  };
 
   render() {
     return (
       <ChatList
         style={{ marginTop: 50 }}
         chatListData={this.props.chatListData.data}
-        openChat={this.props.navigation.navigate("Chat", {
-          itemId: 2,
-          otherParam: "anything you want here",
-        })}
-        // openChat={this.openChat}
+        openChat={this.openChat}
       />
     );
   }

@@ -18,16 +18,12 @@ type Props = {
 type State = {
   userNumber: string,
   userPassword: string,
-  // isValid: boolean,
-  // isLogged: boolean,
 };
 
 class AuthContainer extends React.Component<Props, State> {
   state = {
     userNumber: "",
     userPassword: "",
-    // isValid: true,
-    // isLogged: false,
   };
 
   handleInput = (name: string, value: string) => {
@@ -49,6 +45,7 @@ class AuthContainer extends React.Component<Props, State> {
         handleAuthSubmit={this.handleAuthSubmit}
         isValid={isValid}
         requestStatus={requestStatus}
+        navigation={this.props.navigation}
       />
     );
   }

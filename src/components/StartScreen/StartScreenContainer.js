@@ -10,9 +10,11 @@ import { getChatListData } from "../../actions/onChatListLoading";
 import { authReducer } from "../../reducers/authReducer";
 // import { submitAuth } from "../../actions/onAuthSubmit";
 
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import { withNavigation } from "react-navigation";
+// import { createAppContainer } from "react-navigation";
+
+// import { createStackNavigator } from "react-navigation-stack";
+
+// import { withNavigation } from "react-navigation";
 
 type Props = {
   isLogged: boolean,
@@ -25,29 +27,21 @@ class StartScreenContainer extends React.PureComponent<Props, State> {
     isLogged: false,
   };
 
-  componentDidMount() {
-    let data = this.props.getChatListData([1, 2, 8, 14, 25, 38, 43, 18, 29]);
-  }
-
-  // userLoginStatus = this.props.isLogged;
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.isLogged !== this.props.isLogged) {
-      this.setState({ isLogged: true });
-    }
-  }
-
   static navigationOptions = {
     title: "Home",
   };
+
+  componentDidMount() {
+    let data = this.props.getChatListData([1, 2, 8, 14, 25, 38, 43, 18, 29]);
+  }
 
   render() {
     return (
       <>
         <StartScreen
-          toAuth={this.props.navigation.navigate("Auth")}
-          toChatList={this.props.navigation.navigate("ChatList")}
-          // isLogged={this.props.isLogged}
+        // toAuth={this.props.navigation.navigate("Auth")}
+        // toChatList={this.props.navigation.navigate("ChatList")}
+        // isLogged={this.props.isLogged}
         />
       </>
     );

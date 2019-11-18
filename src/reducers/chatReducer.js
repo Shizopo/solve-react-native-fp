@@ -4,6 +4,7 @@ import {
   GET_CHATLIST_REQUEST,
   GET_CHATLIST_SUCCESS,
   GET_CHATLIST_FAILURE,
+  ADD_NEW_MESSAGE,
 } from "../types/actionTypes";
 import { RequestStatus } from "../utils/RequestStatus";
 
@@ -23,8 +24,6 @@ export const chatReducer = (state = initialValue, action) => {
       return {
         ...state,
         requestStatus: RequestStatus.isLoaded,
-        // isValid: false,
-        // isLogged: false,
         err: action.err,
       };
     case GET_CHATLIST_SUCCESS:
@@ -32,8 +31,11 @@ export const chatReducer = (state = initialValue, action) => {
         ...state,
         requestStatus: RequestStatus.isLoaded,
         data: action.payload,
-        // isValid: action.payload.isValid,
-        // isLogged: action.payload.isLogged,
+      };
+    case ADD_NEW_MESSAGE:
+      return {
+        ...state,
+        data: action.payload,
       };
 
     default:

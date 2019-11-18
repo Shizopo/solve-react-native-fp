@@ -4,19 +4,29 @@ const chatScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
     // textAlign: "center",
-    marginTop: Platform.OS === "ios" ? 70 : 20,
+    marginTop: Platform.OS === "ios" ? 50 : 0,
     marginBottom: 30,
     backgroundColor: "#fafafa",
     height: "100%",
   },
   mainChatScreen: {
     flex: 1,
-    textAlign: "center",
-    backgroundColor: "#fafafa",
     height: "100%",
+    marginBottom: 10,
+    backgroundColor: "#fafafa",
+    textAlign: "center",
   },
   chatMessageContainer: {
-    width: "40%",
+    width: "60%",
+    margin: 5,
+    borderRadius: 10,
+    backgroundColor: "#c0c0c050",
+  },
+  chatMessageHeader: { padding: 5 },
+  chatMessageText: {
+    padding: 10,
+    fontSize: 18,
+    // fontWeight: "bold",
   },
   bottomChatScreen: {
     flexDirection: "row",
@@ -25,27 +35,12 @@ const chatScreenStyles = StyleSheet.create({
     width: "80%",
     height: 40,
     marginLeft: 5,
+    marginRight: 5,
     borderBottomColor: "#000",
     borderWidth: 1,
+    borderRadius: 10,
   },
 
-  userCard: {
-    flex: 1,
-    flexDirection: "row",
-    width: "100%",
-    height: 135,
-    paddingRight: 10,
-    paddingLeft: 10,
-  },
-  userCardMain: {
-    flexDirection: "column",
-    justifyContent: "space-evenly",
-  },
-  userName: {
-    justifyContent: "center",
-    alignContent: "center",
-    paddingTop: 40,
-  },
   mainText: {
     fontSize: 22,
   },

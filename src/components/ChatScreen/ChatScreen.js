@@ -20,27 +20,33 @@ type State = {};
 const renderMessage = message => {
   return (
     <View style={style.chatMessageContainer}>
-      <Text style={style.chatMessageText}>{message.text}</Text>
+      <View style={style.chatMessageHeader}>
+        <Text style={style.chatMessageAuthor}>{message.item.author}</Text>
+      </View>
+      <Text style={style.chatMessageText}>{message.item.text}</Text>
     </View>
   );
 };
 
-const ChatScreen = ({ data }) => {
-  console.log("view data", data.data);
-  console.log("something", data[0].messages);
+const ChatScreen = ({ data, handleInput, sendMessage }) => {
   return (
     <>
       <View style={style.container}>
         <View style={style.mainChatScreen}>
           <FlatList
-            data={data.data}
+            data={data.messages}
+            keyExtractor={item => item.id}
             style={style.messageList}
-            // renderItem={(data.data[0].messages) => renderMessage(data.data[0].messages)}
+            renderItem={item => renderMessage(item)}
           />
         </View>
         <View style={style.bottomChatScreen}>
-          <TextInput multiline={true} style={style.messageInput} />
-          <Button title={"Send"} onPress={() => console.log("nope")} />
+          <TextInput
+            multiline={true}
+            style={style.messageInput}
+            onChangeText={val => handleInput(val)}
+          />
+          <Button title={"Send"} onPress={sendMessage} />
         </View>
       </View>
     </>

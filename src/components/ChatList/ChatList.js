@@ -22,11 +22,13 @@ type State = {};
 const renderItem = (item, openChat) => {
   return (
     <>
-      <TouchableOpacity onPress={openChat}>
+      <TouchableOpacity onPress={() => openChat(item.id)}>
         <View style={style.userCard}>
           <Image style={style.userPhoto} source={{ uri: item.photo }} />
           <View style={style.userCardMain}>
-            {/* <Text style={[style.mainText, style.userNumber]}>{item.id}</Text> */}
+            {/*Temporary solution*/}
+            {/* <Text>{item.id}</Text> */}
+
             <Text style={[style.mainText, style.userFirstName]}>
               {item.name}
             </Text>
@@ -34,10 +36,6 @@ const renderItem = (item, openChat) => {
               {item.messages[item.messages.length - 1].text.slice(0, 100)}
             </Text>
           </View>
-          {/* <Switch
-          onValueChange={val => handleCheckbox(val, user.key)}
-          value={user.isChecked}
-        /> */}
         </View>
 
         <View style={style.separator} />
@@ -47,15 +45,13 @@ const renderItem = (item, openChat) => {
 };
 
 const ChatList = ({ chatListData, openChat }) => {
-  console.log(chatListData);
   return (
     <View style={style.container}>
       <FlatList
         style={style.listContainer}
         data={chatListData}
-        // extraData={chatListData}
-        // keyExtractor={item => item.id.toString()}
-        renderItem={({ item, openChat }) => renderItem(item, openChat)}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({ item }) => renderItem(item, openChat)}
         initialNumToRender={10}
         windowSize={11}
       />

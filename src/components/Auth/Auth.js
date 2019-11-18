@@ -10,6 +10,7 @@ import {
   Button,
   Modal,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
 import { style } from "../../styles/authStyles";
 
@@ -26,6 +27,7 @@ const Auth = ({
   handleAuthSubmit,
   isValid,
   requestStatus,
+  navigation,
 }: Props) => {
   return (
     <>
@@ -61,7 +63,15 @@ const Auth = ({
               </Text>
             </View>
           ) : null}
-          <Button title={"Log in"} onPress={handleAuthSubmit} />
+          {/* <Button title={"Log in"} onPress={handleAuthSubmit} /> */}
+          <TouchableOpacity
+            onPress={() => {
+              handleAuthSubmit();
+              navigation.navigate("ChatList");
+            }}
+          >
+            <Text>Login</Text>
+          </TouchableOpacity>
         </View>
       </View>
       {/* <Modal
