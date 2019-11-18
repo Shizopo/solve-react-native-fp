@@ -16,7 +16,10 @@ import {
 } from "react-native";
 import { style } from "../../styles/chatListStyles";
 
-type Props = {};
+type Props = {
+  chatListData: [],
+  openChat: number => void,
+};
 type State = {};
 
 const renderItem = (item, openChat) => {
@@ -44,7 +47,7 @@ const renderItem = (item, openChat) => {
   );
 };
 
-const ChatList = ({ chatListData, openChat }) => {
+const ChatList = ({ chatListData, openChat }: Props) => {
   return (
     <View style={style.container}>
       <FlatList

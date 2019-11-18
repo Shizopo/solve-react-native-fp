@@ -1,14 +1,5 @@
 // @flow
 
-// const contactsApi = arr => {
-//   let data = fetchContacts(arr);
-//   console.log("data", data);
-//   return new Promise<{}>((resolve, reject) => {
-//     resolve(data);
-//     reject(new Error("Something just went wrong"));
-//   });
-// };
-
 const randomDate = (start, end) => {
   return new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
@@ -62,24 +53,8 @@ const arrangeContactsList = resp => {
   return currentData;
 };
 
-// const fetchContacts = arr => {
-//   fetch(`https://rickandmortyapi.com/api/character/${arr}`)
-//     .then(resp => resp.json())
-//     .then(resp => {
-//       const arrangedContactsList = arrangeContactsList(resp);
-//       console.log("arranged", arrangedContactsList);
-//       console.log("NOTarranged", resp);
-
-//       return arrangedContactsList;
-//     })
-//     .catch(err => console.log(err));
-// };
-
-// const callContactsApi = arr => contactsApi(arr);
-
 class ContactsService {
   callContactsApi(arr) {
-    // return contactsApi(arr);
     return new Promise<{}>((resolve, reject) => {
       fetch(`https://rickandmortyapi.com/api/character/${arr}`)
         .then(resp => resp.json())
@@ -87,7 +62,6 @@ class ContactsService {
           const arrangedContactsList = arrangeContactsList(resp);
           resolve(arrangedContactsList);
           reject(new Error("Something just went wrong"));
-          //   return arrangedContactsList;
         })
         .catch(err => console.log(err));
     });

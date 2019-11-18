@@ -14,7 +14,13 @@ import {
 } from "react-native";
 import { style } from "../../styles/chatScreenStyles";
 
-type Props = {};
+type Props = {
+  data: {
+    messages: [],
+  },
+  handleInput: string => void,
+  sendMessage: () => void,
+};
 type State = {};
 
 const renderMessage = message => {
@@ -28,7 +34,7 @@ const renderMessage = message => {
   );
 };
 
-const ChatScreen = ({ data, handleInput, sendMessage }) => {
+const ChatScreen = ({ data, handleInput, sendMessage }: Props) => {
   return (
     <>
       <View style={style.container}>

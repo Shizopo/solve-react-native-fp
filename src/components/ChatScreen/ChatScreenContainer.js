@@ -12,6 +12,16 @@ type Props = {
   requestStatus: string,
   chatData: [],
   navigation: { getParam: (string, string) => void },
+  selectedChatData?: {
+    id: string,
+    messages: [
+      {
+        author: string,
+        status: string,
+        text: string,
+      }
+    ],
+  },
 };
 
 type State = {

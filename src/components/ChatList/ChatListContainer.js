@@ -7,11 +7,14 @@ import { contactsService } from "../../services/dataService";
 import { chatReducer } from "../../reducers/chatReducer";
 import { getChatListData } from "../../actions/onChatListLoading";
 
-// import { createAppContainer } from "react-navigation";
-// import { createStackNavigator } from "react-navigation-stack";
-
 type Props = {
-  getChatListData: ([]) => void,
+  navigation: {
+    navigate: (string, {}) => void,
+  },
+  getChatListData: () => void,
+  chatListData: {
+    data: [],
+  },
 };
 
 type State = {};
