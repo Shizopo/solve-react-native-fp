@@ -13,12 +13,18 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { style } from "../../styles/authStyles";
+import { ChatList } from "../ChatList";
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer } from "react-navigation";
 
 type Props = {
   handleInput: (name: string, val: string) => void,
   handleAuthSubmit: () => void,
   isValid: boolean,
   requestStatus: string,
+  navigation: {
+    navigate: string => void,
+  },
 };
 type State = {};
 
@@ -89,5 +95,29 @@ const Auth = ({
     </>
   );
 };
+
+const StartScreenNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: Auth,
+      navigationOptions: {
+        header: null,
+        footer: null,
+      },
+    },
+    // Auth: {
+    //   screen: Auth,
+    // },
+    ChatList: {
+      screen: ChatList,
+    },
+    // ChatScreen: {
+    //   screen: ChatScreen,
+    // },
+  },
+  {
+    initialRouteName: "Home",
+  }
+);
 
 export default Auth;

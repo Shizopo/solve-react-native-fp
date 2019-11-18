@@ -40,7 +40,6 @@ const chatScreenStyles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
   },
-
   mainText: {
     fontSize: 22,
   },
@@ -48,21 +47,22 @@ const chatScreenStyles = StyleSheet.create({
     height: 70,
     width: "80%",
   },
-  userPhoto: {
-    top: 25,
-    width: 80,
-    height: 80,
-    borderRadius: 50,
-    margin: 15,
-    alignSelf: "flex-start",
-  },
-  separator: {
-    height: 1,
-    width: "85%",
-    backgroundColor: "#000",
-    alignSelf: "center",
-    marginBottom: 4,
-  },
+
+  // userPhoto: {
+  //   top: 25,
+  //   width: 80,
+  //   height: 80,
+  //   borderRadius: 50,
+  //   margin: 15,
+  //   alignSelf: "flex-start",
+  // },
+  // separator: {
+  //   height: 1,
+  //   width: "85%",
+  //   backgroundColor: "#000",
+  //   alignSelf: "center",
+  //   marginBottom: 4,
+  // },
 });
 
 export { chatScreenStyles as style };

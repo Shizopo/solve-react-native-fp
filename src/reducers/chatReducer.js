@@ -8,6 +8,18 @@ import {
 } from "../types/actionTypes";
 import { RequestStatus } from "../utils/RequestStatus";
 
+// type Props = {
+//   state: {
+//     requestStatus: string,
+//     data: [],
+//   },
+//   action: {
+//     type: string,
+//     payload?: any,
+//     err?: string,
+//   },
+// };
+
 const initialValue = {
   requestStatus: RequestStatus.Default,
   data: [],

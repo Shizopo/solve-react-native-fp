@@ -13,6 +13,9 @@ type Props = {
     isValid: boolean,
     requestStatus: string,
   },
+  navigation: {
+    navigate: string => void,
+  },
 };
 
 type State = {
